@@ -1,0 +1,44 @@
+name: Build and push image to ECR
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+jobs:
+  build-and-publish:
+    name: Build Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr-public
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Set build date and time
+        run:  echo "BUILD_DATE=$(date -u +%FT%TZ)" >> $GITHUB_ENV
+      - name: Get SHA for label
+        run: echo "SHORT_SHA=`git rev-parse --short HEAD`" >> $GITHUB_ENV
+
+      - name: Set repository
+        run: |
+          if [[ $GITHUB_REF_NAME == 'master' ]]; then
+              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/prd/pasapeso-admin-frontend" >> "$GITHUB_ENV"
+          else
+              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/dev/pasapeso-admin-frontend" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build and publish image
+        env:
+          REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
+        run: |
+          docker build --pull --label org.opencontainers.image.created=$BUILD_DATE -t $REGISTRY/$RECOVERY_SIGNER_FIREBASE_AUTH:$SHORT_SHA -f docker/Dockerfile .
+          docker push $REGISTRY/$RECOVERY_SIGNER_FIREBASE_AUTH:$SHORT_SHA
