@@ -31,9 +31,9 @@ jobs:
       - name: Set repository
         run: |
           if [[ $GITHUB_REF_NAME == 'master' ]]; then
-              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/prd/pasapeso-admin-frontend" >> "$GITHUB_ENV"
+              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/prd/recoverysigner-firebase-auth" >> "$GITHUB_ENV"
           else
-              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/dev/pasapeso-admin-frontend" >> "$GITHUB_ENV"
+              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/dev/recoverysigner-firebase-auth" >> "$GITHUB_ENV"
           fi
 
       - name: Build and publish image
