@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - develop
 jobs:
   build-and-publish:
     name: Build Image
@@ -30,11 +29,7 @@ jobs:
 
       - name: Set repository
         run: |
-          if [[ $GITHUB_REF_NAME == 'master' ]]; then
-              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/prd/recoverysigner-firebase-auth" >> "$GITHUB_ENV"
-          else
-              echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/dev/recoverysigner-firebase-auth" >> "$GITHUB_ENV"
-          fi
+          echo "RECOVERY_SIGNER_FIREBASE_AUTH=vibrant/dev/recoverysigner-firebase-auth" >> "$GITHUB_ENV"
 
       - name: Build and publish image
         env:
