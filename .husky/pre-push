@@ -1,0 +1,5 @@
+set -e
+
+yarn lint
+yarn prettier
+yarn test --watchAll=false
