@@ -7,13 +7,8 @@ import { State } from "types.d/State";
 
 export function Landing() {
   const dispatch = useDispatch();
-  const {
-    appDidLoad,
-    phoneNumber,
-    email,
-    dynamicLinkSettings,
-    signInLink,
-  } = useSelector((state: State) => state);
+  const { appDidLoad, phoneNumber, email, dynamicLinkSettings, signInLink } =
+    useSelector((state: State) => state);
 
   useEffect(() => {
     if (appDidLoad) {

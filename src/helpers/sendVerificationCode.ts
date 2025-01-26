@@ -34,11 +34,9 @@ export async function sendVerificationCode({
     parent.insertBefore(recaptchaContainer, existingRecaptchaContainer);
     parent.removeChild(existingRecaptchaContainer);
 
-    const recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha",
-      { size: "invisible" },
-      auth(),
-    );
+    const recaptchaVerifier = new RecaptchaVerifier(auth(), "recaptcha", {
+      size: "invisible",
+    });
 
     const provider = new PhoneAuthProvider(auth());
 

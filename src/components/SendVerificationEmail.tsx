@@ -15,6 +15,7 @@ export function SendVerificationEmail() {
   const sendEmailStatus = useStatus(SEND_VERIFICATION_EMAIL);
   const { email, dynamicLinkSettings } = useSelector((state: State) => state);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sendVerificationEmailDebounce = useCallback(
     debounce(() => {
       if (email && dynamicLinkSettings) {

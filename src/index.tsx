@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import { Provider } from "react-redux";
 import { I18nProvider } from "@lingui/react";
 import * as Sentry from "@sentry/browser";
@@ -20,6 +21,8 @@ if ((window as any).APP_ENV) {
   });
 }
 
+let root: Root | null = null;
+
 (window as any).main = function main(config: AppConfig) {
   (window as any).wasInitted = true;
 
@@ -32,17 +35,25 @@ if ((window as any).APP_ENV) {
   });
 
   auth().languageCode = language;
-
   i18n.activate(language);
 
-  ReactDOM.render(
+  const rootElement = document.getElementById("root");
+  if (!rootElement) {
+    throw new Error("Root element not found in the DOM.");
+  }
+
+  if (!root) {
+    root = createRoot(rootElement);
+  }
+
+  root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <I18nProvider i18n={i18n} language={language}>
+        <I18nProvider i18n={i18n}>
           <App config={{ ...config }} />
         </I18nProvider>
       </Provider>
     </React.StrictMode>,
-    document.getElementById("root"),
   );
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */

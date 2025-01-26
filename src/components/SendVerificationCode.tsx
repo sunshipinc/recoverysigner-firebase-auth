@@ -18,6 +18,7 @@ export function SendVerificationCode() {
   const [isLoading, setIsLoading] = useState(true);
   const phoneNumber = useSelector((state: State) => state.phoneNumber ?? "");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sendVerificationCodeDebounce = useCallback(
     debounce(() => {
       if (phoneNumber) {
