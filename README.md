@@ -86,11 +86,13 @@ main({
 
 ## Husky
 
-We have Husky configured to run some hooks to execute linter, prettier and tests automatically.
-Configured hooks:
-- `pre-push`: it will run lint, prettier and tests before push.
+We have Husky configured to run some hooks to execute linter, prettier and tests
+automatically. Configured hooks:
+
+- `pre-push`: it will run lint and prettier before push.
 
 To run pre-push checks manually
+
 ```bash
 $ sh .husky/pre-push
 ```
