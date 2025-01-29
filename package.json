@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "firebase-tools": "^10.0.1",
-    "husky": "^9.1.7"
+    "husky": "7.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
