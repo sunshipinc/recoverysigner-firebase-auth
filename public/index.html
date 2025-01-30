@@ -41,12 +41,8 @@
       var style = document.createElement("style");
       style.innerHTML = [
         "html, body {",
-        "color: " + window.APP_ENV.TEXT_COLOR + ";",
-        "background-image: linear-gradient(",
-        "180deg,",
-        window.APP_ENV.BACKGROUND_START_COLOR + " 0%,",
-        window.APP_ENV.BACKGROUND_END_COLOR + " 100%",
-        ");",
+        "color: #061D28;",
+        "background-color: #EEF1F7;",
         "}",
       ].join("\n");
       document.head.appendChild(style);
@@ -109,12 +105,10 @@
       <div id="root">
         <div class="static">
           <div class="bootstrap">
-            <p lang="en" class="text text-center text-large">Please wait…</p>
-            <p lang="es" class="text text-center text-large">
-              Por favor esperá…
-            </p>
-            <p lang="uk" class="text text-center text-large">Зачекайте…</p>
-            <p lang="ru" class="text text-center text-large">Зачекайте…</p>
+            <p lang="en" class="text text-center">Please wait…</p>
+            <p lang="es" class="text text-center">Por favor esperá…</p>
+            <p lang="uk" class="text text-center">Зачекайте…</p>
+            <p lang="ru" class="text text-center">Зачекайте…</p>
           </div>
 
           <div hidden class="outdated-webview-error">

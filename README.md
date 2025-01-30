@@ -11,10 +11,8 @@
   window.APP_ENV = {
     FIREBASE_WEB_API_KEY: "your firebase web api key",
     FIREBASE_PROJECT_ID: "your firebase project id",
-    TEXT_COLOR: "#fff",
-    BACKGROUND_START_COLOR: "#6ececb",
-    BACKGROUND_END_COLOR: "#59a4ae",
     LOGO_URL: "https://example.com/logo.svg",
+    BUTTON_COLOR: "#000",
   };
   ```
 - Install the [Firebase CLI](https://firebase.google.com/docs/cli)

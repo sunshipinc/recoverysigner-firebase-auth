@@ -41,7 +41,7 @@ export function ConfirmVerificationCode() {
   if (confirmCodeStatus.isSuccess) {
     return (
       <div className="panel">
-        <p className="text-center text-large">
+        <p className="text-center">
           <Trans>You’ve been verified! Please wait.</Trans>
         </p>
       </div>
@@ -54,6 +54,8 @@ export function ConfirmVerificationCode() {
         <p className="text-center">
           <Trans>We’ve sent you a verification code:</Trans>
         </p>
+
+        <div style={{ height: 20 }} />
 
         <label>
           <input
@@ -69,17 +71,31 @@ export function ConfirmVerificationCode() {
       </div>
 
       {confirmCodeStatus.error && (
-        <div className="error">{confirmCodeStatus.error.toString()}</div>
+        <>
+          <div style={{ height: 30 }} />
+
+          <div>
+            <p className="text-center">{confirmCodeStatus.error.toString()}</p>
+          </div>
+        </>
       )}
 
       {!confirmCodeStatus.isLoading && (
-        <p className="text-center">
-          <button className="button-link" type="button" onClick={handleResend}>
-            <span>
-              <Trans>Resend</Trans>
-            </span>
-          </button>
-        </p>
+        <>
+          <div style={{ height: 30 }} />
+
+          <p className="text-center">
+            <button
+              className="button-link"
+              type="button"
+              onClick={handleResend}
+            >
+              <span>
+                <Trans>Resend</Trans>
+              </span>
+            </button>
+          </p>
+        </>
       )}
     </div>
   );

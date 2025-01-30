@@ -36,11 +36,13 @@ export function SendVerificationEmail() {
 
   return (
     <div className="panel">
-      <div className="text-center text-large">
+      <div className="text-center">
         <p>
           <Trans>Please wait…</Trans>
         </p>
       </div>
+
+      <div style={{ height: 30 }} />
 
       {sendEmailStatus.error && (
         <p>

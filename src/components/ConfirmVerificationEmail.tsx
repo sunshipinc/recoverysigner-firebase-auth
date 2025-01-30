@@ -34,7 +34,7 @@ export function ConfirmVerificationEmail() {
   if (confirmEmailStatus.isSuccess) {
     return (
       <div className="panel">
-        <p className="text-center text-large">
+        <p className="text-center">
           <Trans>You’ve been verified! Please wait.</Trans>
         </p>
       </div>
@@ -43,11 +43,13 @@ export function ConfirmVerificationEmail() {
 
   return (
     <div className="panel">
-      <div className="text-center text-large">
+      <div className="text-center">
         <p>
           <Trans>Please wait…</Trans>
         </p>
       </div>
+
+      <div style={{ height: 30 }} />
 
       {confirmEmailStatus.error && (
         <p>

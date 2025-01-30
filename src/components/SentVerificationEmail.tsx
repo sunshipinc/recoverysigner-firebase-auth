@@ -23,7 +23,13 @@ export function SentVerificationEmail() {
             receive a verification email.
           </Trans>
         </p>
-        <p className="text-center text-bold">{email}</p>
+
+        <div style={{ height: 30 }} />
+
+        <p className="text-center text-medium">{email}</p>
+
+        <div style={{ height: 30 }} />
+
         <p className="text-center">
           <Trans>
             Please check your email on your device and click the verification
@@ -31,6 +37,8 @@ export function SentVerificationEmail() {
           </Trans>
         </p>
       </div>
+
+      <div style={{ height: 30 }} />
 
       <p className="text-center">
         <button className="button-link" type="button" onClick={handleResend}>
