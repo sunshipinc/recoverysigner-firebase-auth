@@ -13,6 +13,8 @@ import { State } from "types.d/State";
 const DELAY = 3000;
 
 export function SendVerificationCode() {
+  const appEnv = (window as any).APP_ENV;
+
   const dispatch = useDispatch();
   const sendCodeStatus = useStatus(SEND_VERIFICATION_CODE);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +58,7 @@ export function SendVerificationCode() {
   return (
     <div className="panel">
       {isLoading && (
-        <div className="text-center text-large">
+        <div className="text-center">
           <p>
             <Trans>Please wait…</Trans>
           </p>
@@ -71,7 +73,11 @@ export function SendVerificationCode() {
 
       {!isLoading && !sendCodeStatus.error && (
         <p className="text-center">
-          <button className="button" onClick={handleSendVerification}>
+          <button
+            className="button"
+            style={{ backgroundColor: appEnv.BUTTON_COLOR }}
+            onClick={handleSendVerification}
+          >
             <span>
               <Trans>Send verification code</Trans>
             </span>
