@@ -25,6 +25,7 @@
 If you're doing something like making UI changes, you can host the app locally.
 To do this:
 
+- Run `yarn install`
 - Run `yarn start`
 
 ## Hosting with Firebase

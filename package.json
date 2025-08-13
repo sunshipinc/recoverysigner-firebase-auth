@@ -7,7 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "start": "vite",
+    "start": "yarn lingui:compile && vite",
     "build": "yarn lingui:compile && tsc -b && vite build && ",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
