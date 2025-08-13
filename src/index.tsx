@@ -2,16 +2,15 @@ import React from "react";
 import { Provider } from "react-redux";
 import { I18nProvider } from "@lingui/react";
 import * as Sentry from "@sentry/browser";
-import { i18n } from "@lingui/core";
 
 import "./index.css";
-import { setLanguage } from "config/i18n";
 import { initializeFirebase, auth } from "config/firebase";
 import { App } from "components/App";
 import { store } from "ducks/store";
 import { determineLanguage } from "helpers/determineLanguage";
 import { type AppConfig } from "types/AppConfig";
-import { createRoot } from "react-dom/client";
+import { createRoot, type Root } from "react-dom/client";
+import { i18n } from "config/i18n";
 
 (window as any).Sentry = Sentry;
 
@@ -20,6 +19,8 @@ if ((window as any).APP_ENV) {
     dsn: (window as any).APP_ENV.SENTRY_DSN,
   });
 }
+
+let root: Root | null = null;
 
 (window as any).main = function main(config: AppConfig) {
   (window as any).wasInitted = true;
@@ -34,9 +35,18 @@ if ((window as any).APP_ENV) {
 
   auth().languageCode = language;
 
-  setLanguage(language);
+  i18n.activate(language);
 
-  createRoot(document.getElementById("root")!).render(
+  const rootElement = document.getElementById("root");
+  if (!rootElement) {
+    throw new Error("Root element not found in the DOM.");
+  }
+
+  if (!root) {
+    root = createRoot(rootElement);
+  }
+
+  createRoot(rootElement).render(
     <React.StrictMode>
       <Provider store={store}>
         <I18nProvider i18n={i18n}>

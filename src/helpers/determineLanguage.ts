@@ -1,4 +1,4 @@
-import { AVAILABLE_LOCALES } from "config/i18n";
+import { catalogs } from "config/i18n";
 
 // input could be in both "en" and "en-US" formats
 export function determineLanguage(input: string): string {
@@ -6,9 +6,9 @@ export function determineLanguage(input: string): string {
 
   const [languageFromInput, countryFromInput] = input.split("-");
 
-  if (AVAILABLE_LOCALES.includes(input)) {
+  if (input in catalogs) {
     language = input;
-  } else if (AVAILABLE_LOCALES.includes(languageFromInput)) {
+  } else if (languageFromInput in catalogs) {
     language = languageFromInput;
   } else if (countryFromInput && countryFromInput === "AR") {
     language = "es-AR";
