@@ -1,20 +1,22 @@
-import React, { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Trans } from "@lingui/macro";
+import { useCallback, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Trans } from "@lingui/react/macro";
 import { debounce } from "lodash";
 
 import { SEND_VERIFICATION_EMAIL } from "ducks/firebase";
 import { setPage } from "ducks/page";
 import { sendVerificationEmail } from "helpers/sendVerificationEmail";
 import { useStatus } from "hooks/useStatus";
-import { Page } from "types.d/Page";
-import { State } from "types.d/State";
+import { Page } from "types/Page";
+import { type State } from "types/State";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function SendVerificationEmail() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const sendEmailStatus = useStatus(SEND_VERIFICATION_EMAIL);
   const { email, dynamicLinkSettings } = useSelector((state: State) => state);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sendVerificationEmailDebounce = useCallback(
     debounce(() => {
       if (email && dynamicLinkSettings) {

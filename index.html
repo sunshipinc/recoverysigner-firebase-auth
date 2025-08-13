@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recovery Signer Firebase Auth</title>
+  <script src="config/env-config.js" vite-ignore></script>
+  <style type="text/css">
+    html[lang^="en-"] #root .static .text:not([lang="en"]) {
+      display: none;
+    }
+
+    html[lang^="es-"] #root .static .text:not([lang="es"]) {
+      display: none;
+    }
+
+    html[lang^="uk-"] #root .static .text:not([lang="uk"]) {
+      display: none;
+    }
+
+    html[lang^="ru-"] #root .static .text:not([lang="ru"]) {
+      display: none;
+    }
+
+    #root .static h1 {
+      font-size: 18px;
+    }
+
+    #root .static {
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    var lang = navigator.language.match(/^(en|es|ru|uk)-/)
+      ? navigator.language
+      : "en-US";
+
+    document.documentElement.lang = lang;
+
+    var style = document.createElement("style");
+    style.innerHTML = [
+      "html, body {",
+      "color: #061D28;",
+      "background-color: #EEF1F7;",
+      "}",
+    ].join("\n");
+    document.head.appendChild(style);
+
+    setTimeout(function () {
+      if (!window.wasInitted && window.Sentry) {
+        var userAgent = navigator.userAgent;
+
+        var isAndroid = userAgent.indexOf("Android") > -1;
+        var isWebview = userAgent.indexOf("wv") > -1;
+        var isChromeLollipop =
+          userAgent.indexOf("Chrome/") > -1 &&
+          userAgent.indexOf("Version/") > -1;
+        var isChromeWebview = userAgent.indexOf("Chrome/") > -1 && isWebview;
+        var errorSelector = "";
+
+        if (isAndroid && isWebview) {
+          errorSelector = ".outdated-webview-error";
+        }
+
+        if (isChromeLollipop && isChromeWebview) {
+          errorSelector = ".outdated-chrome-error";
+        }
+
+        if (errorSelector) {
+          document.querySelector(".bootstrap").hidden = true;
+          document.querySelector(errorSelector).hidden = false;
+          document.querySelector(".outdated-error").hidden = false;
+        }
+
+        Sentry.setContext("Webview info", {
+          isAndroid: isAndroid,
+          isWebview: isWebview,
+          isChromeLollipop: isChromeLollipop,
+          isChromeWebview: isChromeWebview,
+          errorSelector: errorSelector,
+          language: navigator.language,
+          detectedLanguage: document.documentElement.lang,
+        });
+
+        Sentry.captureException(
+          new Error("window.main wasn't called after 5 seconds"),
+        );
+      }
+    }, 2000);
+  </script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class="main-container">
+    <div class="text-center logo-container">
+      <script>
+        var image = new Image();
+        image.src = window.APP_ENV.LOGO_URL;
+        image.className = "logo";
+        document.querySelector(".logo-container").appendChild(image);
+      </script>
+    </div>
+
+    <div id="root">
+      <div class="static">
+        <div class="bootstrap">
+          <p lang="en" class="text text-center">Please wait…</p>
+          <p lang="es" class="text text-center">Por favor esperá…</p>
+          <p lang="uk" class="text text-center">Зачекайте…</p>
+          <p lang="ru" class="text text-center">Зачекайте…</p>
+        </div>
+
+        <div hidden class="outdated-webview-error">
+          <h1 class="text" lang="en">
+            Please update Android WebView to start the session.
+          </h1>
+          <h1 class="text" lang="es">
+            Actualice Android WebView para iniciar sesión.
+          </h1>
+          <h1 class="text" lang="uk">
+            Будь ласка, оновіть Android WebView, щоб розпочати сесію.
+          </h1>
+          <h1 class="text" lang="ru">
+            Обновите Android WebView, чтобы начать сессию.
+          </h1>
+        </div>
+
+        <div hidden class="outdated-chrome-error">
+          <h1 class="text" lang="en">
+            Please update Google Chrome to start the session.
+          </h1>
+          <h1 class="text" lang="es">
+            Actualice Google Chrome para iniciar sesión.
+          </h1>
+          <h1 class="text" lang="uk">
+            Будь ласка, оновіть Google Chrome, щоб розпочати сесію.
+          </h1>
+          <h1 class="text" lang="ru">
+            Обновите Google Chrome, чтобы начать сессию.
+          </h1>
+        </div>
+
+        <div hidden class="outdated-error">
+          <p class="text" lang="en">
+            Your device’s browser is not compatible. Please update your
+            browser and Vibrant to the latest version.
+          </p>
+          <p class="text" lang="es">
+            El navegador de tu dispositivo no es compatible. Actualizá tu
+            navegador o bajate la última versión de Vibrant.
+          </p>
+          <p class="text" lang="uk">
+            На вашому пристрої встановлена застаріла версія браузера. Будь
+            ласка, оновіть ваш браузер і додаток Vibrant до останньої версії.
+          </p>
+          <p class="text" lang="ru">
+            На вашем устройстве установлена устаревшая версия браузера.
+            Обновите браузер и приложение Vibrant до последней версии.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="recaptcha"></div>
+  </div>
+
+  <script type="module" src="src/index.tsx"></script>
+</body>
+
+</html>

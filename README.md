@@ -2,7 +2,7 @@
 
 ## Initial setup
 
-- Install [Node.js](https://nodejs.org)
+- Install [Node.js v22 (LTS)](https://nodejs.org/en/download)
 - Install [yarn](https://classic.yarnpkg.com/en/docs/install)
 - Run `git clone git@github.com:stellar/recoverysigner-firebase-auth.git`
 - Run `cd recoverysigner-firebase-auth && yarn install`
@@ -25,6 +25,7 @@
 If you're doing something like making UI changes, you can host the app locally.
 To do this:
 
+- Run `yarn install`
 - Run `yarn start`
 
 ## Hosting with Firebase
@@ -61,14 +62,18 @@ main({
   email: "jordyn@example.com",
   // These settings are used by Firebase to generate a dynamic sign-in link
   dynamicLinkSettings: {
-    dynamicLinkDomain: "example.page.link",
-    url: "https://example.page.link/auth-email",
+    url: "https://example.com/auth-email",
     android: { installApp: true, packageName: "io.example.app" },
     iOS: { bundleId: "io.example.app" },
     handleCodeInApp: true,
+    linkDomain: "example.com",
   },
 });
 ```
+
+> ⚠️ Important note: `dynamicLinkDomain` is deprecated and will no longer work
+> after Aug 25th 2025. The new property `linkDomain` is required to tell
+> Firebase to use that as the base domain instead of a dynamic link.
 
 A link will be sent to that email. To complete sign-in, refresh the browser and
 run:

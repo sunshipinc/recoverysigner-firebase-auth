@@ -1,25 +1,27 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Trans } from "@lingui/macro";
+import { useCallback, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Trans } from "@lingui/react/macro";
 import { debounce } from "lodash";
 
 import { SEND_VERIFICATION_CODE } from "ducks/firebase";
 import { setPage } from "ducks/page";
 import { sendVerificationCode } from "helpers/sendVerificationCode";
 import { useStatus } from "hooks/useStatus";
-import { Page } from "types.d/Page";
-import { State } from "types.d/State";
+import { Page } from "types/Page";
+import { type State } from "types/State";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 const DELAY = 3000;
 
 export function SendVerificationCode() {
   const appEnv = (window as any).APP_ENV;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const sendCodeStatus = useStatus(SEND_VERIFICATION_CODE);
   const [isLoading, setIsLoading] = useState(true);
   const phoneNumber = useSelector((state: State) => state.phoneNumber ?? "");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sendVerificationCodeDebounce = useCallback(
     debounce(() => {
       if (phoneNumber) {

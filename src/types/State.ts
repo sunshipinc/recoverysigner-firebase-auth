@@ -1,8 +1,8 @@
-import { FirebaseOptions } from "firebase/app";
+import type { FirebaseOptions } from "firebase/app";
 import { RecaptchaVerifier, PhoneAuthProvider } from "firebase/auth";
-import { DynamicLinkSettings } from "types.d/AppConfig";
-import { Page } from "types.d/Page";
-import { Status } from "types.d/Status";
+import type { DynamicLinkSettings } from "types/AppConfig";
+import { Page } from "types/Page";
+import type { Status } from "types/Status";
 
 export interface State {
   phoneNumber?: string;

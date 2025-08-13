@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Trans } from "@lingui/macro";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Trans } from "@lingui/react/macro";
 
-import { State } from "types.d/State";
-import { Page } from "types.d/Page";
+import { type State } from "types/State";
+import { Page } from "types/Page";
 import { confirmVerificationCode } from "helpers/confirmVerificationCode";
 import { useStatus } from "hooks/useStatus";
 import { CONFIRM_VERIFICATION_CODE } from "ducks/firebase";
 import { setPage } from "ducks/page";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function ConfirmVerificationCode() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [verificationCode, setVerificationCode] = useState("");
   const { verificationId, idToken } = useSelector((state: State) => state);
   const confirmCodeStatus = useStatus(CONFIRM_VERIFICATION_CODE);

@@ -1,8 +1,8 @@
 import reduceReducers from "reduce-reducers";
-import { createStore, Reducer, Action } from "redux";
+import { type Reducer, type Action, legacy_createStore } from "redux";
 
-import { Page } from "types.d/Page";
-import { State } from "types.d/State";
+import { Page } from "types/Page";
+import { type State } from "types/State";
 import { reducer as appReducer } from "./app";
 import { reducer as firebaseReducer } from "./firebase";
 import { reducer as pageReducer } from "./page";
@@ -14,12 +14,14 @@ const initialState: State = {
   statuses: {},
 } as State;
 
-const rootReducer = reduceReducers(
+const rootReducer = reduceReducers<State>(
   initialState,
-  appReducer as Reducer<State>,
-  firebaseReducer as Reducer<State>,
-  pageReducer as Reducer<State>,
-  statusReducer as Reducer<State>,
+  appReducer as unknown as Reducer<State>,
+  firebaseReducer as unknown as Reducer<State>,
+  pageReducer as unknown as Reducer<State>,
+  statusReducer as unknown as Reducer<State>,
 );
 
-export const store = createStore(rootReducer as Reducer<State, Action>);
+export const store = legacy_createStore(rootReducer as Reducer<State, Action>);
+
+export type AppDispatch = typeof store.dispatch;

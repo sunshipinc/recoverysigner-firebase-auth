@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { Status } from "types.d/Status";
-import { State } from "types.d/State";
+import { type Status } from "types/Status";
+import { type State } from "types/State";
 
 const defaultStatus = {
   hasLoaded: false,

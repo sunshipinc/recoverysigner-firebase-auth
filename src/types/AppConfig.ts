@@ -1,11 +1,12 @@
 import { RecaptchaVerifier } from "firebase/auth";
 
 export interface DynamicLinkSettings {
-  dynamicLinkDomain: string;
+  dynamicLinkDomain?: string; // deprecated
   url: string;
   android: { installApp: boolean; packageName: string };
   iOS: { bundleId: string };
   handleCodeInApp: true;
+  linkDomain?: string;
 }
 
 export interface AppConfig {

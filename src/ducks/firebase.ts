@@ -1,4 +1,4 @@
-import { State } from "types.d/State";
+import { type State } from "types/State";
 import { PhoneAuthProvider } from "firebase/auth";
 
 type Actions =
@@ -51,7 +51,7 @@ export function sendVerificationCode(
 
 // Send verification email
 
-interface SendVerificationEmailAction {
+export interface SendVerificationEmailAction {
   type: typeof SEND_VERIFICATION_EMAIL;
 }
 

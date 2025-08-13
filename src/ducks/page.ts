@@ -1,5 +1,5 @@
-import { State } from "types.d/State";
-import { Page } from "types.d/Page";
+import { type State } from "types/State";
+import { Page } from "types/Page";
 
 export type Actions = SetPageAction;
 

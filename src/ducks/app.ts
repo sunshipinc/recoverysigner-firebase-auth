@@ -1,4 +1,4 @@
-import { State } from "types.d/State";
+import { type State } from "types/State";
 
 export type Actions = InitAppAction;
 

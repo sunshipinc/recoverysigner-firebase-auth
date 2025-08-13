@@ -1,13 +1,13 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Trans } from "@lingui/macro";
+import { useSelector } from "react-redux";
+import { Trans } from "@lingui/react/macro";
 
-import { State } from "types.d/State";
-import { Page } from "types.d/Page";
+import { type State } from "types/State";
+import { Page } from "types/Page";
 import { setPage } from "ducks/page";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function SentVerificationEmail() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { email } = useSelector((state: State) => state);
 
   const handleResend = () => {

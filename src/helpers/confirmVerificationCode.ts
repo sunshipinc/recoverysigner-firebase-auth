@@ -1,4 +1,3 @@
-import { Dispatch } from "redux";
 import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
 
 import { auth } from "config/firebase";
@@ -8,12 +7,13 @@ import {
 } from "ducks/firebase";
 import { buildStatus } from "helpers/buildStatus";
 import { getFirebaseError } from "helpers/getFirebaseError";
-import { StatusType } from "types.d/Status";
+import { StatusType } from "types/Status";
+import type { AppDispatch } from "ducks/store";
 
 interface ConfirmVerificationCodeParams {
   verificationId: string;
   verificationCode: string;
-  dispatch: Dispatch;
+  dispatch: AppDispatch;
 }
 
 export async function confirmVerificationCode({
