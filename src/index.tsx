@@ -46,7 +46,7 @@ let root: Root | null = null;
     root = createRoot(rootElement);
   }
 
-  createRoot(rootElement).render(
+  root.render(
     <React.StrictMode>
       <Provider store={store}>
         <I18nProvider i18n={i18n}>
