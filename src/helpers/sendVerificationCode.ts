@@ -1,5 +1,4 @@
-import { Dispatch } from "redux";
-import { RecaptchaVerifier, PhoneAuthProvider } from "firebase/auth";
+import { RecaptchaVerifier, PhoneAuthProvider, getAuth } from "firebase/auth";
 
 import { auth } from "config/firebase";
 import {
@@ -8,11 +7,12 @@ import {
 } from "ducks/firebase";
 import { buildStatus } from "helpers/buildStatus";
 import { getFirebaseError } from "helpers/getFirebaseError";
-import { StatusType } from "types.d/Status";
+import { StatusType } from "types/Status";
+import type { AppDispatch } from "ducks/store";
 
 interface SendVerificationCodeParams {
   phoneNumber: string;
-  dispatch: Dispatch;
+  dispatch: AppDispatch;
 }
 
 export async function sendVerificationCode({
@@ -34,11 +34,9 @@ export async function sendVerificationCode({
     parent.insertBefore(recaptchaContainer, existingRecaptchaContainer);
     parent.removeChild(existingRecaptchaContainer);
 
-    const recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha",
-      { size: "invisible" },
-      auth(),
-    );
+    const recaptchaVerifier = new RecaptchaVerifier(getAuth(), "recaptcha", {
+      size: "invisible",
+    });
 
     const provider = new PhoneAuthProvider(auth());
 

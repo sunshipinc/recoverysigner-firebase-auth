@@ -1,16 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { I18nProvider } from "@lingui/react";
 import * as Sentry from "@sentry/browser";
+import { i18n } from "@lingui/core";
 
 import "./index.css";
-import { i18n } from "config/i18n";
+import { setLanguage } from "config/i18n";
 import { initializeFirebase, auth } from "config/firebase";
 import { App } from "components/App";
 import { store } from "ducks/store";
 import { determineLanguage } from "helpers/determineLanguage";
-import { AppConfig } from "types.d/AppConfig";
+import { type AppConfig } from "types/AppConfig";
+import { createRoot } from "react-dom/client";
 
 (window as any).Sentry = Sentry;
 
@@ -33,16 +34,15 @@ if ((window as any).APP_ENV) {
 
   auth().languageCode = language;
 
-  i18n.activate(language);
+  setLanguage(language);
 
-  ReactDOM.render(
+  createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
       <Provider store={store}>
-        <I18nProvider i18n={i18n} language={language}>
+        <I18nProvider i18n={i18n}>
           <App config={{ ...config }} />
         </I18nProvider>
       </Provider>
     </React.StrictMode>,
-    document.getElementById("root"),
   );
 };

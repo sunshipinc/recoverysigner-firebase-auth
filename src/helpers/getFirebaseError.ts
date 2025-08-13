@@ -1,8 +1,15 @@
-import { AuthError } from "firebase/auth";
+import { i18n } from "@lingui/core";
+import { FirebaseError } from "firebase/app";
+import { type AuthError } from "firebase/auth";
 
-import { i18n } from "config/i18n";
+export function getFirebaseError(error: AuthError | Error | unknown) {
+  if (!(error instanceof FirebaseError) && !(error instanceof Error)) {
+    if ((window as any).Sentry) {
+      (window as any).Sentry.captureException(new Error(JSON.stringify(error)));
+    }
+    return JSON.stringify(error);
+  }
 
-export function getFirebaseError(error: AuthError | Error) {
   if (!("code" in error)) {
     if ((window as any).Sentry) {
       (window as any).Sentry.captureException(new Error(error.toString()));

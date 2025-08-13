@@ -1,9 +1,8 @@
-import { Dispatch } from "redux";
-
-import { StatusType } from "types.d/Status";
+import { StatusType } from "types/Status";
 import { setStatus } from "ducks/status";
+import type { AppDispatch } from "ducks/store";
 
-export function buildStatus(actionType: string, dispatch: Dispatch) {
+export function buildStatus(actionType: string, dispatch: AppDispatch) {
   return (statusType: StatusType, error?: Error) => {
     let status;
 

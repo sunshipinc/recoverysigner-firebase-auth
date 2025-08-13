@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { setPage } from "ducks/page";
-import { Page } from "types.d/Page";
-import { State } from "types.d/State";
+import { Page } from "types/Page";
+import { type State } from "types/State";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function Landing() {
-  const dispatch = useDispatch();
-  const {
-    appDidLoad,
-    phoneNumber,
-    email,
-    dynamicLinkSettings,
-    signInLink,
-  } = useSelector((state: State) => state);
+  const dispatch = useAppDispatch();
+  const { appDidLoad, phoneNumber, email, dynamicLinkSettings, signInLink } =
+    useSelector((state: State) => state);
 
   useEffect(() => {
     if (appDidLoad) {

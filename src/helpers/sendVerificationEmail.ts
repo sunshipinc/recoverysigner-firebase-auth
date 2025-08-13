@@ -1,4 +1,3 @@
-import { Dispatch } from "redux";
 import { sendSignInLinkToEmail } from "firebase/auth";
 
 import { auth } from "config/firebase";
@@ -8,13 +7,14 @@ import {
 } from "ducks/firebase";
 import { buildStatus } from "helpers/buildStatus";
 import { getFirebaseError } from "helpers/getFirebaseError";
-import { DynamicLinkSettings } from "types.d/AppConfig";
-import { StatusType } from "types.d/Status";
+import { type DynamicLinkSettings } from "types/AppConfig";
+import { StatusType } from "types/Status";
+import type { AppDispatch } from "ducks/store";
 
 interface SendVerificationEmailParams {
   email: string;
   dynamicLinkSettings: DynamicLinkSettings;
-  dispatch: Dispatch;
+  dispatch: AppDispatch;
 }
 
 let isSending = false;

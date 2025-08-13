@@ -1,5 +1,9 @@
-import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
-import { getAuth, Auth } from "firebase/auth";
+import {
+  type FirebaseApp,
+  type FirebaseOptions,
+  initializeApp,
+} from "firebase/app";
+import { getAuth, type Auth } from "firebase/auth";
 
 let appInstance: FirebaseApp;
 let authInstance: Auth;

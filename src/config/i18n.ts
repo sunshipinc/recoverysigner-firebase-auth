@@ -1,15 +1,15 @@
-import { Catalog, setupI18n } from "@lingui/core";
-import { t } from "@lingui/macro";
+import { t } from "@lingui/core/macro";
+import { i18n, type Messages } from "@lingui/core";
 
-import en from "locales/en/messages";
-import es from "locales/es/messages";
-import esAR from "locales/es-AR/messages";
-import fr from "locales/fr/messages";
-import pt from "locales/pt/messages";
-import uk from "locales/uk/messages";
-import ru from "locales/ru/messages";
+import { messages as en } from "locales/en/messages";
+import { messages as es } from "locales/es/messages";
+import { messages as esAR } from "locales/es-AR/messages";
+import { messages as fr } from "locales/fr/messages";
+import { messages as pt } from "locales/pt/messages";
+import { messages as uk } from "locales/uk/messages";
+import { messages as ru } from "locales/ru/messages";
 
-export const catalogs: { [key: string]: Catalog } = {
+export const messages: { [key: string]: Messages } = {
   en,
   es,
   "es-AR": esAR,
@@ -19,10 +19,14 @@ export const catalogs: { [key: string]: Catalog } = {
   ru,
 };
 
-export const i18n = setupI18n({
-  language: "en",
-  catalogs,
-});
+export const AVAILABLE_LOCALES = Object.keys(messages);
+
+export function setLanguage(locale: string) {
+  i18n.load(locale, messages[locale]);
+  i18n.activate(locale);
+}
+
+setLanguage("en");
 
 // Strings that need to be translated because they're being used on index.html
 t`Please update Android WebView to start the session.`;

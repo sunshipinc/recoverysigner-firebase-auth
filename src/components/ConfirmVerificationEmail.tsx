@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Trans } from "@lingui/macro";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Trans } from "@lingui/react/macro";
 
-import { State } from "types.d/State";
+import { type State } from "types/State";
 import { confirmVerificationEmail } from "helpers/confirmVerificationEmail";
 import { useStatus } from "hooks/useStatus";
 import { CONFIRM_VERIFICATION_EMAIL } from "ducks/firebase";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function ConfirmVerificationEmail() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { signInLink, email, idToken } = useSelector((state: State) => state);
   const confirmEmailStatus = useStatus(CONFIRM_VERIFICATION_EMAIL);
 

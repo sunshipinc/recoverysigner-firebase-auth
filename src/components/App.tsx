@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { AppConfig } from "types.d/AppConfig";
-import { Page } from "types.d/Page";
-import { State } from "types.d/State";
+import { type AppConfig } from "types/AppConfig";
+import { Page } from "types/Page";
+import { type State } from "types/State";
 import { ConfirmVerificationCode } from "components/ConfirmVerificationCode";
 import { ConfirmVerificationEmail } from "components/ConfirmVerificationEmail";
 import { SentVerificationEmail } from "components/SentVerificationEmail";
@@ -11,13 +11,13 @@ import { Landing } from "components/Landing";
 import { SendVerificationCode } from "components/SendVerificationCode";
 import { SendVerificationEmail } from "components/SendVerificationEmail";
 import { initApp } from "ducks/app";
+import { useAppDispatch } from "hooks/useAppDispatch";
 
 interface AppProps {
   config: AppConfig;
 }
-
 export function App({ config }: AppProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [component, setComponent] = useState<React.ReactElement>(<></>);
   const { appDidLoad, currentPage } = useSelector((state: State) => state);
 
