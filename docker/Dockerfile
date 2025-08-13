@@ -12,7 +12,7 @@ ADD . /app/src
 
 WORKDIR /app/src
 
-RUN yarn install
+RUN yarn install --production
 RUN yarn build
 
 FROM nginx:1.17
