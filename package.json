@@ -16,7 +16,7 @@
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "prettier": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
     "prettier:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@lingui/core": "^5.4.1",
