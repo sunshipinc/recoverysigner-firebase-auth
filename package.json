@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "yarn lingui:compile && vite",
-    "build": "yarn lingui:compile && tsc -b && vite build && ",
+    "build": "yarn lingui:compile && tsc -b && vite build && rm -r build/config/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lingui:compile": "yarn lingui extract && yarn lingui compile --typescript",

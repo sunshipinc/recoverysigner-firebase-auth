@@ -2,7 +2,7 @@
 
 ## Initial setup
 
-- Install [Node.js](https://nodejs.org)
+- Install [Node.js v22 (LTS)](https://nodejs.org/en/download)
 - Install [yarn](https://classic.yarnpkg.com/en/docs/install)
 - Run `git clone git@github.com:stellar/recoverysigner-firebase-auth.git`
 - Run `cd recoverysigner-firebase-auth && yarn install`

@@ -14,45 +14,60 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/config/i18n.ts:34
+msgid "Please update Android WebView to start the session."
+msgstr "Please update Android WebView to start the session."
+
+#. js-lingui-explicit-id
+#: src/config/i18n.ts:35
+msgid "Please update Google Chrome to start the session."
+msgstr "Please update Google Chrome to start the session."
+
+#. js-lingui-explicit-id
+#: src/config/i18n.ts:36
+msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
+msgstr "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
+
+#. js-lingui-explicit-id
+#: src/helpers/getFirebaseError.ts:15
+#~ msgid "The confirmation code you provided is invalid."
+#~ msgstr "The confirmation code you provided is invalid."
+
+#. js-lingui-explicit-id
+#: src/helpers/getFirebaseError.ts:19
+#~ msgid "Please provide a valid phone number."
+#~ msgstr "Please provide a valid phone number."
+
+#. js-lingui-explicit-id
+#: src/helpers/getFirebaseError.ts:22
+#~ msgid ""
+#~ "You’ve tried to do that too many times. Please\n"
+#~ "      wait a while and try again!"
+#~ msgstr ""
+#~ "You’ve tried to do that too many times. Please\n"
+#~ "      wait a while and try again!"
+
+#. js-lingui-explicit-id
+#: src/helpers/getFirebaseError.ts:26
+#~ msgid "Please fill out the captcha to proceed."
+#~ msgstr "Please fill out the captcha to proceed."
+
+#. js-lingui-explicit-id
 #: src/helpers/getFirebaseError.ts:29
-msgid "The confirmation code you provided is invalid."
-msgstr "The confirmation code you provided is invalid."
+#~ msgid "This email is already in use. Please use another one."
+#~ msgstr "This email is already in use. Please use another one."
 
 #. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:33
-msgid "Please provide a valid phone number."
-msgstr "Please provide a valid phone number."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:36
-msgid ""
-"You’ve tried to do that too many times. Please\n"
-"      wait a while and try again!"
-msgstr ""
-"You’ve tried to do that too many times. Please\n"
-"      wait a while and try again!"
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:40
-msgid "Please fill out the captcha to proceed."
-msgstr "Please fill out the captcha to proceed."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:43
-msgid "This email is already in use. Please use another one."
-msgstr "This email is already in use. Please use another one."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:46
-msgid "There was a network connectivity issue. Please try again."
-msgstr "There was a network connectivity issue. Please try again."
+#: src/helpers/getFirebaseError.ts:32
+#~ msgid "There was a network connectivity issue. Please try again."
+#~ msgstr "There was a network connectivity issue. Please try again."
 
 #. placeholder {0}: confirmEmailStatus.error.message
 #. placeholder {0}: sendCodeStatus.error.message
 #. placeholder {0}: sendEmailStatus.error.message
 #: src/components/ConfirmVerificationEmail.tsx:57
-#: src/components/SendVerificationCode.tsx:71
-#: src/components/SendVerificationEmail.tsx:50
+#: src/components/SendVerificationCode.tsx:72
+#: src/components/SendVerificationEmail.tsx:51
 msgid "Error: {0}"
 msgstr "Error: {0}"
 
@@ -60,21 +75,35 @@ msgstr "Error: {0}"
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "If the below email address is associated with an account, you will receive a verification email."
 
+#. placeholder {0}: error.code
+#: src/helpers/getFirebaseError.ts:39
+#: src/helpers/getFirebaseError.ts:44
+msgid "Oops! Please try again in a few minutes. (error code: {0})"
+msgstr "Oops! Please try again in a few minutes. (error code: {0})"
+
 #: src/components/SentVerificationEmail.tsx:34
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Please check your email on your device and click the verification link in the email message to proceed."
 
+#: src/helpers/getFirebaseError.ts:26
+msgid "Please fill out the captcha to proceed."
+msgstr "Please fill out the captcha to proceed."
+
+#: src/helpers/getFirebaseError.ts:19
+msgid "Please provide a valid phone number."
+msgstr "Please provide a valid phone number."
+
 #: src/config/i18n.ts:32
-msgid "Please update Android WebView to start the session."
-msgstr "Please update Android WebView to start the session."
+#~ msgid "Please update Android WebView to start the session."
+#~ msgstr "Please update Android WebView to start the session."
 
 #: src/config/i18n.ts:33
-msgid "Please update Google Chrome to start the session."
-msgstr "Please update Google Chrome to start the session."
+#~ msgid "Please update Google Chrome to start the session."
+#~ msgstr "Please update Google Chrome to start the session."
 
 #: src/components/ConfirmVerificationEmail.tsx:49
-#: src/components/SendVerificationCode.tsx:64
-#: src/components/SendVerificationEmail.tsx:42
+#: src/components/SendVerificationCode.tsx:65
+#: src/components/SendVerificationEmail.tsx:43
 msgid "Please wait…"
 msgstr "Please wait…"
 
@@ -83,9 +112,21 @@ msgstr "Please wait…"
 msgid "Resend"
 msgstr "Resend"
 
-#: src/components/SendVerificationCode.tsx:83
+#: src/components/SendVerificationCode.tsx:84
 msgid "Send verification code"
 msgstr "Send verification code"
+
+#: src/helpers/getFirebaseError.ts:15
+msgid "The confirmation code you provided is invalid."
+msgstr "The confirmation code you provided is invalid."
+
+#: src/helpers/getFirebaseError.ts:32
+msgid "There was a network connectivity issue. Please try again."
+msgstr "There was a network connectivity issue. Please try again."
+
+#: src/helpers/getFirebaseError.ts:29
+msgid "This email is already in use. Please use another one."
+msgstr "This email is already in use. Please use another one."
 
 #: src/components/ConfirmVerificationCode.tsx:56
 msgid "We’ve sent you a verification code:"
@@ -96,6 +137,14 @@ msgstr "We’ve sent you a verification code:"
 msgid "You’ve been verified! Please wait."
 msgstr "You’ve been verified! Please wait."
 
+#: src/helpers/getFirebaseError.ts:22
+msgid ""
+"You’ve tried to do that too many times. Please\n"
+"      wait a while and try again!"
+msgstr ""
+"You’ve tried to do that too many times. Please\n"
+"      wait a while and try again!"
+
 #: src/config/i18n.ts:34
-msgid "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
-msgstr "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
+#~ msgid "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
+#~ msgstr "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
