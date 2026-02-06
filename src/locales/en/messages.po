@@ -66,7 +66,7 @@ msgstr "Your device's browser is not compatible. Please update your browser and 
 #. placeholder {0}: sendCodeStatus.error.message
 #. placeholder {0}: sendEmailStatus.error.message
 #: src/components/ConfirmVerificationEmail.tsx:57
-#: src/components/SendVerificationCode.tsx:72
+#: src/components/SendVerificationCode.tsx:51
 #: src/components/SendVerificationEmail.tsx:51
 msgid "Error: {0}"
 msgstr "Error: {0}"
@@ -102,7 +102,7 @@ msgstr "Please provide a valid phone number."
 #~ msgstr "Please update Google Chrome to start the session."
 
 #: src/components/ConfirmVerificationEmail.tsx:49
-#: src/components/SendVerificationCode.tsx:65
+#: src/components/SendVerificationCode.tsx:42
 #: src/components/SendVerificationEmail.tsx:43
 msgid "Please wait…"
 msgstr "Please wait…"
@@ -112,7 +112,7 @@ msgstr "Please wait…"
 msgid "Resend"
 msgstr "Resend"
 
-#: src/components/SendVerificationCode.tsx:84
+#: src/components/SendVerificationCode.tsx:44
 msgid "Send verification code"
 msgstr "Send verification code"
 
