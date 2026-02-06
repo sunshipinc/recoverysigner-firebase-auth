@@ -69,7 +69,7 @@ msgstr ""
 #. placeholder {0}: sendCodeStatus.error.message
 #. placeholder {0}: sendEmailStatus.error.message
 #: src/components/ConfirmVerificationEmail.tsx:57
-#: src/components/SendVerificationCode.tsx:72
+#: src/components/SendVerificationCode.tsx:51
 #: src/components/SendVerificationEmail.tsx:51
 msgid "Error: {0}"
 msgstr "Erreur : {0}"
@@ -105,7 +105,7 @@ msgstr ""
 #~ msgstr "Veuillez mettre à jour Google Chrome pour démarrer la session."
 
 #: src/components/ConfirmVerificationEmail.tsx:49
-#: src/components/SendVerificationCode.tsx:65
+#: src/components/SendVerificationCode.tsx:42
 #: src/components/SendVerificationEmail.tsx:43
 msgid "Please wait…"
 msgstr "Veuillez patienter…"
@@ -115,7 +115,7 @@ msgstr "Veuillez patienter…"
 msgid "Resend"
 msgstr "Renvoyer"
 
-#: src/components/SendVerificationCode.tsx:84
+#: src/components/SendVerificationCode.tsx:44
 msgid "Send verification code"
 msgstr "Envoyer un code de vérification"
 
