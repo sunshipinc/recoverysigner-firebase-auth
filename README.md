@@ -87,6 +87,49 @@ main({
 });
 ```
 
+### Firebase Dynamic Link migration required settings update
+
+To complete the migration, you need to manually
+[change the mobile links config](https://firebase.google.com/docs/auth/android/email-link-migration#:~:text=Configure%20your%20project%20to%20use%20the%20new%20links)
+to `HOSTING_DOMAIN` on your Firebase project using the firebase-admin SDK. Below
+is an example of code written in Node.js but refer to Firebase
+[docs](https://firebase.google.com/docs/admin/setup) to set up the SDK properly
+in your environment.
+
+```js
+const admin = require("firebase-admin");
+const { getAuth } = require("firebase-admin/auth");
+
+// Initialize Firebase Admin with service account
+const serviceAccount = require("./RECOVERYKEY.json");
+var app = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+/* @link https://firebase.google.com/docs/reference/admin/node/firebase-admin.auth.projectconfigmanager */
+const projectConfigManager = getAuth(app).projectConfigManager();
+
+const updateRequest = {
+  /* @link https://firebase.google.com/docs/reference/admin/node/firebase-admin.auth.mobilelinksconfig */
+  mobileLinksConfig: {
+    domain: "HOSTING_DOMAIN",
+  },
+};
+
+const updateProjectConfig = () => {
+  projectConfigManager
+    .updateProjectConfig(updateRequest)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log("Error updating the project:", error);
+    });
+};
+
+updateProjectConfig();
+```
+
 ## Husky
 
 We have Husky configured to run some hooks to execute linter, prettier and tests
