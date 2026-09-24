@@ -127,3 +127,10 @@ button {
   /* Let users copy the reference for support */
   user-select: text;
 }
+
+.success-message {
+  margin-top: 20px;
+  color: #1e6b34;
+  font-size: 14px;
+  font-weight: 500;
+}

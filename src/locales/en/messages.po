@@ -46,7 +46,7 @@ msgstr "Please wait…"
 msgid "Ref: {reference}"
 msgstr "Ref: {reference}"
 
-#: src/components/ConfirmVerificationCode.tsx:90
+#: src/components/ConfirmVerificationCode.tsx:120
 #: src/components/SentVerificationEmail.tsx:46
 msgid "Resend"
 msgstr "Resend"
@@ -54,6 +54,10 @@ msgstr "Resend"
 #: src/components/SendVerificationCode.tsx:47
 msgid "Send verification code"
 msgstr "Send verification code"
+
+#: src/components/ConfirmVerificationCode.tsx:118
+msgid "Sending a new code…"
+msgstr "Sending a new code…"
 
 #: src/helpers/getFirebaseError.ts:42
 msgid "The code you entered is incorrect. Check the SMS and enter the 6-digit code again, or tap Resend to get a new code."
@@ -103,11 +107,15 @@ msgstr "We couldn’t complete this step. Please try again in a few minutes. If 
 msgid "We couldn’t connect. Check your internet connection and try again."
 msgstr "We couldn’t connect. Check your internet connection and try again."
 
-#: src/components/ConfirmVerificationCode.tsx:57
+#: src/components/ConfirmVerificationCode.tsx:101
+msgid "We’ve sent you a new code."
+msgstr "We’ve sent you a new code."
+
+#: src/components/ConfirmVerificationCode.tsx:70
 msgid "We’ve sent you a verification code:"
 msgstr "We’ve sent you a verification code:"
 
-#: src/components/ConfirmVerificationCode.tsx:47
+#: src/components/ConfirmVerificationCode.tsx:60
 #: src/components/ConfirmVerificationEmail.tsx:40
 msgid "You’ve been verified! Please wait."
 msgstr "You’ve been verified! Please wait."
