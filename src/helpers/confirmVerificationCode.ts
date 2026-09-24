@@ -36,8 +36,9 @@ export async function confirmVerificationCode({
     dispatch(action({ idToken }));
     setStatus(StatusType.success);
   } catch (error) {
-    const message = getFirebaseError(error);
-
-    setStatus(StatusType.error, new Error(message));
+    setStatus(
+      StatusType.error,
+      getFirebaseError(error, "confirm-verification-code"),
+    );
   }
 }

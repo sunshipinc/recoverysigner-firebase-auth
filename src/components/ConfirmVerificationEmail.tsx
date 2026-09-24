@@ -5,6 +5,7 @@ import { Trans } from "@lingui/react/macro";
 import { type State } from "types/State";
 import { confirmVerificationEmail } from "helpers/confirmVerificationEmail";
 import { useStatus } from "hooks/useStatus";
+import { ErrorMessage } from "components/ErrorMessage";
 import { CONFIRM_VERIFICATION_EMAIL } from "ducks/firebase";
 import { useAppDispatch } from "hooks/useAppDispatch";
 
@@ -44,18 +45,14 @@ export function ConfirmVerificationEmail() {
 
   return (
     <div className="panel">
-      <div className="text-center">
-        <p>
-          <Trans>Please wait…</Trans>
-        </p>
-      </div>
-
-      <div style={{ height: 30 }} />
-
-      {confirmEmailStatus.error && (
-        <p>
-          <Trans>Error: {confirmEmailStatus.error.message}</Trans>
-        </p>
+      {confirmEmailStatus.error ? (
+        <ErrorMessage error={confirmEmailStatus.error} />
+      ) : (
+        <div className="text-center">
+          <p>
+            <Trans>Please wait…</Trans>
+          </p>
+        </div>
       )}
     </div>
   );

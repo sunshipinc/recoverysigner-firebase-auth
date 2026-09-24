@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Trans } from "@lingui/macro";
 
+import { ErrorMessage } from "components/ErrorMessage";
 import { SEND_VERIFICATION_CODE } from "ducks/firebase";
 import { setPage } from "ducks/page";
 import { sendVerificationCode } from "helpers/sendVerificationCode";
@@ -40,17 +41,15 @@ export function SendVerificationCode() {
         <span>
           {sendCodeStatus.isLoading || sendCodeStatus.isSuccess ? (
             <Trans>Please wait…</Trans>
+          ) : sendCodeStatus.error ? (
+            <Trans>Try again</Trans>
           ) : (
             <Trans>Send verification code</Trans>
           )}
         </span>
       </button>
 
-      {sendCodeStatus.error && (
-        <p>
-          <Trans>Error: {sendCodeStatus.error.message}</Trans>
-        </p>
-      )}
+      {sendCodeStatus.error && <ErrorMessage error={sendCodeStatus.error} />}
     </div>
   );
 }

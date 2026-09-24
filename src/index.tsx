@@ -37,6 +37,8 @@ let root: Root | null = null;
 
   i18n.activate(language);
 
+  setSentryContext(config, language);
+
   const rootElement = document.getElementById("root");
   if (!rootElement) {
     throw new Error("Root element not found in the DOM.");
@@ -56,3 +58,37 @@ let root: Root | null = null;
     </React.StrictMode>,
   );
 };
+
+function getAuthMethod(config: AppConfig) {
+  if (config.phoneNumber) {
+    return "phone";
+  }
+
+  if (config.email && config.signInLink) {
+    return "email-link";
+  }
+
+  if (config.email) {
+    return "email";
+  }
+
+  return "unknown";
+}
+
+// Tags every Sentry event with enough context to group reports and link them
+// back to a user, without sending the phone number or email.
+function setSentryContext(config: AppConfig, language: string) {
+  if (!Sentry.getClient()) {
+    return;
+  }
+
+  if (config.userId) {
+    Sentry.setUser({ id: config.userId });
+  }
+
+  Sentry.setTags({
+    auth_method: getAuthMethod(config),
+    language,
+    requested_language: config.language,
+  });
+}

@@ -24,4 +24,8 @@ export interface AppConfig {
 
   // accepts both "en" and "en-US" formats
   language: string;
+
+  // optional user ID from the host app, set as the Sentry user so reports can
+  // be linked back to who hit them
+  userId?: string;
 }

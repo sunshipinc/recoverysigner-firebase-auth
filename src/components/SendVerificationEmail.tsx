@@ -7,6 +7,7 @@ import { SEND_VERIFICATION_EMAIL } from "ducks/firebase";
 import { setPage } from "ducks/page";
 import { sendVerificationEmail } from "helpers/sendVerificationEmail";
 import { useStatus } from "hooks/useStatus";
+import { ErrorMessage } from "components/ErrorMessage";
 import { Page } from "types/Page";
 import { type State } from "types/State";
 import { useAppDispatch } from "hooks/useAppDispatch";
@@ -38,18 +39,14 @@ export function SendVerificationEmail() {
 
   return (
     <div className="panel">
-      <div className="text-center">
-        <p>
-          <Trans>Please wait…</Trans>
-        </p>
-      </div>
-
-      <div style={{ height: 30 }} />
-
-      {sendEmailStatus.error && (
-        <p>
-          <Trans>Error: {sendEmailStatus.error.message}</Trans>
-        </p>
+      {sendEmailStatus.error ? (
+        <ErrorMessage error={sendEmailStatus.error} />
+      ) : (
+        <div className="text-center">
+          <p>
+            <Trans>Please wait…</Trans>
+          </p>
+        </div>
       )}
     </div>
   );
