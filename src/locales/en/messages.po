@@ -28,74 +28,13 @@ msgstr "Please update Google Chrome to start the session."
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:15
-#~ msgid "The confirmation code you provided is invalid."
-#~ msgstr "The confirmation code you provided is invalid."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:19
-#~ msgid "Please provide a valid phone number."
-#~ msgstr "Please provide a valid phone number."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:22
-#~ msgid ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-#~ msgstr ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:26
-#~ msgid "Please fill out the captcha to proceed."
-#~ msgstr "Please fill out the captcha to proceed."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:29
-#~ msgid "This email is already in use. Please use another one."
-#~ msgstr "This email is already in use. Please use another one."
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:32
-#~ msgid "There was a network connectivity issue. Please try again."
-#~ msgstr "There was a network connectivity issue. Please try again."
-
-#: src/components/ConfirmVerificationEmail.tsx:57
-#: src/components/SendVerificationCode.tsx:51
-#: src/components/SendVerificationEmail.tsx:51
-#~ msgid "Error: {0}"
-#~ msgstr "Error: {0}"
-
 #: src/components/SentVerificationEmail.tsx:21
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "If the below email address is associated with an account, you will receive a verification email."
 
-#: src/helpers/getFirebaseError.ts:39
-#: src/helpers/getFirebaseError.ts:44
-#~ msgid "Oops! Please try again in a few minutes. (error code: {0})"
-#~ msgstr "Oops! Please try again in a few minutes. (error code: {0})"
-
 #: src/components/SentVerificationEmail.tsx:34
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Please check your email on your device and click the verification link in the email message to proceed."
-
-#: src/helpers/getFirebaseError.ts:26
-#~ msgid "Please fill out the captcha to proceed."
-#~ msgstr "Please fill out the captcha to proceed."
-
-#: src/helpers/getFirebaseError.ts:19
-#~ msgid "Please provide a valid phone number."
-#~ msgstr "Please provide a valid phone number."
-
-#: src/config/i18n.ts:32
-#~ msgid "Please update Android WebView to start the session."
-#~ msgstr "Please update Android WebView to start the session."
-
-#: src/config/i18n.ts:33
-#~ msgid "Please update Google Chrome to start the session."
-#~ msgstr "Please update Google Chrome to start the session."
 
 #: src/components/ConfirmVerificationEmail.tsx:53
 #: src/components/SendVerificationCode.tsx:43
@@ -106,10 +45,6 @@ msgstr "Please wait…"
 #: src/components/ErrorMessage.tsx:20
 msgid "Ref: {reference}"
 msgstr "Ref: {reference}"
-
-#: src/components/ErrorMessage.tsx:32
-#~ msgid "Reference: {reference}"
-#~ msgstr "Reference: {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:90
 #: src/components/SentVerificationEmail.tsx:46
@@ -123,18 +58,6 @@ msgstr "Send verification code"
 #: src/helpers/getFirebaseError.ts:42
 msgid "The code you entered is incorrect. Check the SMS and enter the 6-digit code again, or tap Resend to get a new code."
 msgstr "The code you entered is incorrect. Check the SMS and enter the 6-digit code again, or tap Resend to get a new code."
-
-#: src/helpers/getFirebaseError.ts:15
-#~ msgid "The confirmation code you provided is invalid."
-#~ msgstr "The confirmation code you provided is invalid."
-
-#: src/helpers/getFirebaseError.ts:48
-#~ msgid "The security check was closed before it was completed. Tap Try again and complete the challenge to receive your code."
-#~ msgstr "The security check was closed before it was completed. Tap Try again and complete the challenge to receive your code."
-
-#: src/helpers/getFirebaseError.ts:32
-#~ msgid "There was a network connectivity issue. Please try again."
-#~ msgstr "There was a network connectivity issue. Please try again."
 
 #: src/helpers/getFirebaseError.ts:46
 msgid "This code has expired. Tap Resend to get a new code."
@@ -188,15 +111,3 @@ msgstr "We’ve sent you a verification code:"
 #: src/components/ConfirmVerificationEmail.tsx:40
 msgid "You’ve been verified! Please wait."
 msgstr "You’ve been verified! Please wait."
-
-#: src/helpers/getFirebaseError.ts:22
-#~ msgid ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-#~ msgstr ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-
-#: src/config/i18n.ts:34
-#~ msgid "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
-#~ msgstr "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."

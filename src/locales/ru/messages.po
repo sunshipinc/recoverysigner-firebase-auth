@@ -33,72 +33,13 @@ msgstr "Обновите Google Chrome, чтобы начать сессию."
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "На вашем устройстве установлена устаревшая версия браузера. Обновите браузер и приложение Vibrant до последней версии."
 
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:15
-#~ msgid "The confirmation code you provided is invalid."
-#~ msgstr ""
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:19
-#~ msgid "Please provide a valid phone number."
-#~ msgstr ""
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:22
-#~ msgid ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-#~ msgstr ""
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:26
-#~ msgid "Please fill out the captcha to proceed."
-#~ msgstr ""
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:29
-#~ msgid "This email is already in use. Please use another one."
-#~ msgstr ""
-
-#. js-lingui-explicit-id
-#: src/helpers/getFirebaseError.ts:32
-#~ msgid "There was a network connectivity issue. Please try again."
-#~ msgstr ""
-
-#: src/components/ConfirmVerificationEmail.tsx:57
-#: src/components/SendVerificationCode.tsx:51
-#: src/components/SendVerificationEmail.tsx:51
-#~ msgid "Error: {0}"
-#~ msgstr "Ошибка: {0}"
-
 #: src/components/SentVerificationEmail.tsx:21
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "Если указанный ниже адрес электронной почты связан с аккаунтом, вы получите электронное письмо с подтверждением."
 
-#: src/helpers/getFirebaseError.ts:39
-#: src/helpers/getFirebaseError.ts:44
-#~ msgid "Oops! Please try again in a few minutes. (error code: {0})"
-#~ msgstr ""
-
 #: src/components/SentVerificationEmail.tsx:34
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Чтобы продолжить, проверьте почтовый ящик на своем устройстве и нажмите на ссылку для подтверждения в электронном письме, которое мы вам прислали."
-
-#: src/helpers/getFirebaseError.ts:26
-#~ msgid "Please fill out the captcha to proceed."
-#~ msgstr ""
-
-#: src/helpers/getFirebaseError.ts:19
-#~ msgid "Please provide a valid phone number."
-#~ msgstr ""
-
-#: src/config/i18n.ts:32
-#~ msgid "Please update Android WebView to start the session."
-#~ msgstr "Обновите Android WebView, чтобы начать сессию."
-
-#: src/config/i18n.ts:33
-#~ msgid "Please update Google Chrome to start the session."
-#~ msgstr "Обновите Google Chrome, чтобы начать сессию."
 
 #: src/components/ConfirmVerificationEmail.tsx:53
 #: src/components/SendVerificationCode.tsx:43
@@ -109,10 +50,6 @@ msgstr "Подождите…"
 #: src/components/ErrorMessage.tsx:20
 msgid "Ref: {reference}"
 msgstr "Код для поддержки: {reference}"
-
-#: src/components/ErrorMessage.tsx:32
-#~ msgid "Reference: {reference}"
-#~ msgstr ""
 
 #: src/components/ConfirmVerificationCode.tsx:90
 #: src/components/SentVerificationEmail.tsx:46
@@ -126,18 +63,6 @@ msgstr "Отправить код подтверждения"
 #: src/helpers/getFirebaseError.ts:42
 msgid "The code you entered is incorrect. Check the SMS and enter the 6-digit code again, or tap Resend to get a new code."
 msgstr "Вы ввели неверный код. Проверьте SMS и введите 6-значный код еще раз или нажмите «Отправить еще раз», чтобы получить новый код."
-
-#: src/helpers/getFirebaseError.ts:15
-#~ msgid "The confirmation code you provided is invalid."
-#~ msgstr ""
-
-#: src/helpers/getFirebaseError.ts:48
-#~ msgid "The security check was closed before it was completed. Tap Try again and complete the challenge to receive your code."
-#~ msgstr "Проверка безопасности была закрыта до завершения. Нажмите «Попробовать еще раз» и пройдите проверку, чтобы получить код."
-
-#: src/helpers/getFirebaseError.ts:32
-#~ msgid "There was a network connectivity issue. Please try again."
-#~ msgstr ""
 
 #: src/helpers/getFirebaseError.ts:46
 msgid "This code has expired. Tap Resend to get a new code."
@@ -191,13 +116,3 @@ msgstr "Мы отправили вам код подтверждения:"
 #: src/components/ConfirmVerificationEmail.tsx:40
 msgid "You’ve been verified! Please wait."
 msgstr "Вы прошли проверку. Подождите."
-
-#: src/helpers/getFirebaseError.ts:22
-#~ msgid ""
-#~ "You’ve tried to do that too many times. Please\n"
-#~ "      wait a while and try again!"
-#~ msgstr ""
-
-#: src/config/i18n.ts:34
-#~ msgid "Your device’s browser is not compatible. Please update your browser and Vibrant to the latest version."
-#~ msgstr "На вашем устройстве установлена устаревшая версия браузера. Обновите браузер и приложение Vibrant до последней версии."
