@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Trans } from "@lingui/react/macro";
 
+import { ErrorMessage } from "components/ErrorMessage";
 import { type State } from "types/State";
 import { Page } from "types/Page";
 import { confirmVerificationCode } from "helpers/confirmVerificationCode";
@@ -72,13 +73,7 @@ export function ConfirmVerificationCode() {
       </div>
 
       {confirmCodeStatus.error && (
-        <>
-          <div style={{ height: 30 }} />
-
-          <div>
-            <p className="text-center">{confirmCodeStatus.error.toString()}</p>
-          </div>
-        </>
+        <ErrorMessage error={confirmCodeStatus.error} />
       )}
 
       {!confirmCodeStatus.isLoading && (

@@ -53,6 +53,9 @@ main({ phoneNumber: "+15551112222" });
 A 6-digit code will be sent to that phone number. To complete sign-in, input the
 code on the next screen.
 
+Optionally pass `userId` (e.g. `main({ phoneNumber, userId: "123" })`) to set it
+as the Sentry user, so error reports can be linked back to that user.
+
 ## Trigger auth with email
 
 Run the following script in your browser console:
