@@ -1,4 +1,4 @@
-import { setupI18n } from "@lingui/core";
+import { i18n } from "@lingui/core";
 
 import { messages as en } from "locales/en/messages";
 import { messages as es } from "locales/es/messages";
@@ -19,8 +19,10 @@ const catalogs = {
   ru,
 };
 
-// Create the i18n instance
-const i18n = setupI18n();
+// Use Lingui's global instance: the `t` macro from "@lingui/core/macro"
+// (used in helpers/getFirebaseError) compiles to this instance. A separate
+// `setupI18n()` instance would leave it without an active locale, making `t`
+// throw inside the error handlers and leaving the UI stuck on "Please wait…".
 
 // Load all language catalogs into the i18n instance
 Object.entries(catalogs).forEach(([locale, messages]) => {

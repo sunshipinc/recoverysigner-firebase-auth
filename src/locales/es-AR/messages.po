@@ -19,17 +19,17 @@ msgstr ""
 "X-Crowdin-File-ID: 64\n"
 
 #. js-lingui-explicit-id
-#: src/config/i18n.ts:34
+#: src/config/i18n.ts:36
 msgid "Please update Android WebView to start the session."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/config/i18n.ts:35
+#: src/config/i18n.ts:37
 msgid "Please update Google Chrome to start the session."
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/config/i18n.ts:36
+#: src/config/i18n.ts:38
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr ""
 
@@ -118,6 +118,10 @@ msgstr "Reenviar"
 #: src/components/SendVerificationCode.tsx:44
 msgid "Send verification code"
 msgstr "Enviar código de verificación"
+
+#: src/helpers/getFirebaseError.ts:48
+msgid "Something went wrong. Please try again."
+msgstr ""
 
 #: src/helpers/getFirebaseError.ts:15
 msgid "The confirmation code you provided is invalid."

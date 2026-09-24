@@ -1,4 +1,4 @@
-import { RecaptchaVerifier, PhoneAuthProvider, getAuth } from "firebase/auth";
+import { RecaptchaVerifier, PhoneAuthProvider } from "firebase/auth";
 
 import { auth } from "config/firebase";
 import {
@@ -15,6 +15,8 @@ interface SendVerificationCodeParams {
   dispatch: AppDispatch;
 }
 
+let recaptchaVerifier: RecaptchaVerifier | null = null;
+
 export async function sendVerificationCode({
   phoneNumber,
   dispatch,
@@ -23,6 +25,11 @@ export async function sendVerificationCode({
   setStatus(StatusType.loading);
 
   try {
+    // Dispose of the previous widget before removing its container, otherwise
+    // reCAPTCHA callbacks still fire against the detached element.
+    recaptchaVerifier?.clear();
+    recaptchaVerifier = null;
+
     // Always recreate #recaptcha so we don't have to deal with re-rendering
     // issues.
     const recaptchaContainer = document.createElement("div");
@@ -34,7 +41,7 @@ export async function sendVerificationCode({
     parent.insertBefore(recaptchaContainer, existingRecaptchaContainer);
     parent.removeChild(existingRecaptchaContainer);
 
-    const recaptchaVerifier = new RecaptchaVerifier(getAuth(), "recaptcha", {
+    recaptchaVerifier = new RecaptchaVerifier(auth(), "recaptcha", {
       size: "invisible",
     });
 

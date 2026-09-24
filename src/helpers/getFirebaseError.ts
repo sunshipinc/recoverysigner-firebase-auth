@@ -44,6 +44,8 @@ export function getFirebaseError(error: unknown) {
         return t`Oops! Please try again in a few minutes. (error code: ${error.code})`;
     }
   }
+
+  return t`Something went wrong. Please try again.`;
 }
 
 function isAuthError(error: unknown): error is AuthError {
