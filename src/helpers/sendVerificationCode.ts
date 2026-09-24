@@ -61,7 +61,7 @@ export async function sendVerificationCode({
       SEND_CODE_TIMEOUT_MS,
     );
 
-    dispatch(action({ provider, verificationId }));
+    dispatch(action({ provider, verificationId, codeSentAt: Date.now() }));
     setStatus(StatusType.success);
   } catch (error) {
     setStatus(

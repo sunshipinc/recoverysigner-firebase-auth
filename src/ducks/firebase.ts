@@ -41,6 +41,7 @@ interface SendVerificationCodeAction {
 interface SendVerificationCodePayload {
   provider: PhoneAuthProvider;
   verificationId: string;
+  codeSentAt: number;
 }
 
 export function sendVerificationCode(

@@ -51,16 +51,20 @@ msgstr "Por favor esperá…"
 msgid "Ref: {reference}"
 msgstr "Ref.: {reference}"
 
-#: src/components/ConfirmVerificationCode.tsx:120
+#: src/components/ConfirmVerificationCode.tsx:124
 #: src/components/SentVerificationEmail.tsx:46
 msgid "Resend"
 msgstr "Reenviar"
+
+#: src/components/ConfirmVerificationCode.tsx:122
+msgid "Resend in {cooldownSeconds}s"
+msgstr "Reenviar en {cooldownSeconds} s"
 
 #: src/components/SendVerificationCode.tsx:47
 msgid "Send verification code"
 msgstr "Enviar código de verificación"
 
-#: src/components/ConfirmVerificationCode.tsx:118
+#: src/components/ConfirmVerificationCode.tsx:120
 msgid "Sending a new code…"
 msgstr "Enviando un código nuevo…"
 
@@ -112,15 +116,15 @@ msgstr "No pudimos completar este paso. Volvé a intentarlo en unos minutos. Si 
 msgid "We couldn’t connect. Check your internet connection and try again."
 msgstr "No pudimos conectarnos. Revisá tu conexión a internet y volvé a intentarlo."
 
-#: src/components/ConfirmVerificationCode.tsx:101
+#: src/components/ConfirmVerificationCode.tsx:103
 msgid "We’ve sent you a new code."
 msgstr "Te mandamos un código nuevo."
 
-#: src/components/ConfirmVerificationCode.tsx:70
+#: src/components/ConfirmVerificationCode.tsx:72
 msgid "We’ve sent you a verification code:"
 msgstr "Te hemos enviado un código de verificación:"
 
-#: src/components/ConfirmVerificationCode.tsx:60
+#: src/components/ConfirmVerificationCode.tsx:62
 #: src/components/ConfirmVerificationEmail.tsx:40
 msgid "You’ve been verified! Please wait."
 msgstr "¡Has sido verificado! Por favor espera."

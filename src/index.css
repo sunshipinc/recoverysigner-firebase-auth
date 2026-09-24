@@ -134,3 +134,8 @@ button {
   font-size: 14px;
   font-weight: 500;
 }
+
+.button-link[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}

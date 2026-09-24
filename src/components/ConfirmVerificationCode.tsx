@@ -6,6 +6,7 @@ import { ErrorMessage } from "components/ErrorMessage";
 import { type State } from "types/State";
 import { confirmVerificationCode } from "helpers/confirmVerificationCode";
 import { sendVerificationCode } from "helpers/sendVerificationCode";
+import { useSendCodeCooldown } from "hooks/useSendCodeCooldown";
 import { useStatus } from "hooks/useStatus";
 import {
   CONFIRM_VERIFICATION_CODE,
@@ -24,6 +25,7 @@ export function ConfirmVerificationCode() {
   const confirmCodeStatus = useStatus(CONFIRM_VERIFICATION_CODE);
   const sendCodeStatus = useStatus(SEND_VERIFICATION_CODE);
   const isResending = hasRequestedResend && sendCodeStatus.isLoading;
+  const cooldownSeconds = useSendCodeCooldown();
 
   useEffect(() => {
     if (verificationCode.match(/^\d{6}$/)) {
@@ -111,11 +113,13 @@ export function ConfirmVerificationCode() {
               className="button-link"
               type="button"
               onClick={handleResend}
-              disabled={isResending}
+              disabled={isResending || cooldownSeconds > 0}
             >
               <span>
                 {isResending ? (
                   <Trans>Sending a new code…</Trans>
+                ) : cooldownSeconds > 0 ? (
+                  <Trans>Resend in {cooldownSeconds}s</Trans>
                 ) : (
                   <Trans>Resend</Trans>
                 )}
