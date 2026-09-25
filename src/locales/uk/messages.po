@@ -31,13 +31,13 @@ msgstr "Будь ласка, оновіть Google Chrome, щоб розпоча
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:38
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
-msgstr "На вашому пристрої встановлена застаріла версія браузера. Будь ласка, оновіть ваш браузер і додаток Vibrant до останньої версії."
+msgstr "Версія вашого браузера застаріла. Будь ласка, оновіть його і додаток Vibrant до останньої версії."
 
-#: src/components/SentVerificationEmail.tsx:21
+#: src/components/SentVerificationEmail.tsx:23
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "Якщо вказана нижче адреса електронної пошти пов’язана з обліковим записом, ви отримаєте електронний лист із підтвердженням."
 
-#: src/components/SentVerificationEmail.tsx:34
+#: src/components/SentVerificationEmail.tsx:36
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Для продовження, перевірте свою поштову скриньку на вашому пристрої та натисніть на посилання для підтвердження в електронному листі, який ми вам надіслали."
 
@@ -49,14 +49,15 @@ msgstr "Зачекайте…"
 
 #: src/components/ErrorMessage.tsx:20
 msgid "Ref: {reference}"
-msgstr "Код для підтримки: {reference}"
+msgstr "Код для служби підтримки: {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:124
-#: src/components/SentVerificationEmail.tsx:46
+#: src/components/SentVerificationEmail.tsx:56
 msgid "Resend"
 msgstr "Надіслати повторно"
 
 #: src/components/ConfirmVerificationCode.tsx:122
+#: src/components/SentVerificationEmail.tsx:54
 msgid "Resend in {cooldownSeconds}s"
 msgstr "Надіслати повторно через {cooldownSeconds} с"
 
@@ -70,7 +71,7 @@ msgstr "Надсилаємо новий код…"
 
 #: src/helpers/getFirebaseError.ts:42
 msgid "The code you entered is incorrect. Check the SMS and enter the 6-digit code again, or tap Resend to get a new code."
-msgstr "Ви ввели неправильний код. Перевірте SMS і введіть 6-значний код ще раз або натисніть «Надіслати повторно», щоб отримати новий код."
+msgstr "Невірно введений код. Перевірте SMS і введіть 6-значний код ще раз або натисніть «Надіслати повторно», щоб отримати новий код."
 
 #: src/helpers/getFirebaseError.ts:46
 msgid "This code has expired. Tap Resend to get a new code."
@@ -78,7 +79,7 @@ msgstr "Термін дії коду минув. Натисніть «Надіс
 
 #: src/helpers/getFirebaseError.ts:63
 msgid "This email is already in use. Please use another one."
-msgstr "Ця адреса електронної пошти вже використовується. Вкажіть іншу."
+msgstr "Ця адреса електронної пошти вже використовується. Будь ласка, вкажіть іншу."
 
 #: src/helpers/getFirebaseError.ts:73
 msgid "This is taking longer than expected. Check your internet connection and try again."
@@ -86,15 +87,15 @@ msgstr "Це триває довше, ніж очікувалося. Перев�
 
 #: src/helpers/getFirebaseError.ts:50
 msgid "This phone number isn’t valid. Go back and check that your phone number is correct."
-msgstr "Цей номер телефону недійсний. Поверніться назад і перевірте, чи правильно вказано номер."
+msgstr "Номер телефону недійсний. Поверніться назад і перевірте, чи номер вказано правильно."
 
 #: src/helpers/getFirebaseError.ts:67
 msgid "This sign-in link is invalid or has expired. Go back and request a new link."
-msgstr "Це посилання для входу недійсне або застаріле. Поверніться назад і запросіть нове посилання."
+msgstr "Це посилання для входу недійсне або застаріле. Поверніться назад і натисніть отримати нове посилання."
 
 #: src/helpers/getFirebaseError.ts:53
 msgid "Too many attempts. Please wait a few minutes before trying again."
-msgstr "Забагато спроб. Зачекайте кілька хвилин і спробуйте знову."
+msgstr "Забагато спроб. Зачекайте кілька хвилин, щоб спробувати знову."
 
 #: src/components/SendVerificationCode.tsx:45
 msgid "Try again"
@@ -106,7 +107,7 @@ msgstr "Зараз ми не можемо надіслати код підтве
 
 #: src/helpers/getFirebaseError.ts:60
 msgid "We couldn’t complete the security check. Please try again and complete the challenge if one appears."
-msgstr "Не вдалося пройти перевірку безпеки. Спробуйте ще раз і пройдіть перевірку, якщо вона з’явиться."
+msgstr "Не вдалося пройти перевірку безпеки. Спробуйте ще раз і пройдіть її, якщо вона з’явиться."
 
 #: src/helpers/getFirebaseError.ts:78
 msgid "We couldn’t complete this step. Please try again in a few minutes. If it keeps happening, contact support with the reference below."
@@ -114,7 +115,7 @@ msgstr "Не вдалося виконати цей крок. Спробуйте
 
 #: src/helpers/getFirebaseError.ts:70
 msgid "We couldn’t connect. Check your internet connection and try again."
-msgstr "Не вдалося підключитися. Перевірте підключення до інтернету та спробуйте ще раз."
+msgstr "Немає з’єднання. Перевірте підключення до інтернету та спробуйте ще раз."
 
 #: src/components/ConfirmVerificationCode.tsx:103
 msgid "We’ve sent you a new code."

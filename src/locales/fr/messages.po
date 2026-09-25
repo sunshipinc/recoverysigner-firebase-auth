@@ -33,11 +33,11 @@ msgstr "Veuillez mettre à jour Google Chrome pour démarrer la session."
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "Le navigateur de votre appareil n’est pas compatible. Veuillez mettre à jour votre navigateur et Vibrant vers la dernière version."
 
-#: src/components/SentVerificationEmail.tsx:21
+#: src/components/SentVerificationEmail.tsx:23
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "Si l'adresse de messagerie ci-dessous est associée à un compte, vous recevrez un e-mail de vérification."
 
-#: src/components/SentVerificationEmail.tsx:34
+#: src/components/SentVerificationEmail.tsx:36
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Veuillez consulter votre boîte de réception sur votre appareil et cliquer sur le lien de vérification dans le message de l'e-mail pour continuer."
 
@@ -52,11 +52,12 @@ msgid "Ref: {reference}"
 msgstr "Réf. : {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:124
-#: src/components/SentVerificationEmail.tsx:46
+#: src/components/SentVerificationEmail.tsx:56
 msgid "Resend"
 msgstr "Renvoyer"
 
 #: src/components/ConfirmVerificationCode.tsx:122
+#: src/components/SentVerificationEmail.tsx:54
 msgid "Resend in {cooldownSeconds}s"
 msgstr "Renvoyer dans {cooldownSeconds} s"
 

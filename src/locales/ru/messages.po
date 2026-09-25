@@ -33,11 +33,11 @@ msgstr "Обновите Google Chrome, чтобы начать сессию."
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "На вашем устройстве установлена устаревшая версия браузера. Обновите браузер и приложение Vibrant до последней версии."
 
-#: src/components/SentVerificationEmail.tsx:21
+#: src/components/SentVerificationEmail.tsx:23
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "Если указанный ниже адрес электронной почты связан с аккаунтом, вы получите электронное письмо с подтверждением."
 
-#: src/components/SentVerificationEmail.tsx:34
+#: src/components/SentVerificationEmail.tsx:36
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Чтобы продолжить, проверьте почтовый ящик на своем устройстве и нажмите на ссылку для подтверждения в электронном письме, которое мы вам прислали."
 
@@ -52,11 +52,12 @@ msgid "Ref: {reference}"
 msgstr "Код для поддержки: {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:124
-#: src/components/SentVerificationEmail.tsx:46
+#: src/components/SentVerificationEmail.tsx:56
 msgid "Resend"
 msgstr "Отправить еще раз"
 
 #: src/components/ConfirmVerificationCode.tsx:122
+#: src/components/SentVerificationEmail.tsx:54
 msgid "Resend in {cooldownSeconds}s"
 msgstr "Отправить еще раз через {cooldownSeconds} с"
 
@@ -110,7 +111,7 @@ msgstr "Не удалось пройти проверку безопасност
 
 #: src/helpers/getFirebaseError.ts:78
 msgid "We couldn’t complete this step. Please try again in a few minutes. If it keeps happening, contact support with the reference below."
-msgstr "Не удалось выполнить этот шаг. Попробуйте еще раз через несколько минут. Если ошибка повторится, обратитесь в поддержку и сообщите код ниже."
+msgstr "Не удалось выполнить этот шаг. Попробуйте еще раз через несколько минут. Если ошибка повторится, свяжитесь со службой поддержки, указав приведенные ниже данные."
 
 #: src/helpers/getFirebaseError.ts:70
 msgid "We couldn’t connect. Check your internet connection and try again."

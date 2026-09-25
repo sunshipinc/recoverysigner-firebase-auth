@@ -28,11 +28,11 @@ msgstr "Please update Google Chrome to start the session."
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 
-#: src/components/SentVerificationEmail.tsx:21
+#: src/components/SentVerificationEmail.tsx:23
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "If the below email address is associated with an account, you will receive a verification email."
 
-#: src/components/SentVerificationEmail.tsx:34
+#: src/components/SentVerificationEmail.tsx:36
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Please check your email on your device and click the verification link in the email message to proceed."
 
@@ -47,11 +47,12 @@ msgid "Ref: {reference}"
 msgstr "Ref: {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:124
-#: src/components/SentVerificationEmail.tsx:46
+#: src/components/SentVerificationEmail.tsx:56
 msgid "Resend"
 msgstr "Resend"
 
 #: src/components/ConfirmVerificationCode.tsx:122
+#: src/components/SentVerificationEmail.tsx:54
 msgid "Resend in {cooldownSeconds}s"
 msgstr "Resend in {cooldownSeconds}s"
 

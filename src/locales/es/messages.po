@@ -21,23 +21,23 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:36
 msgid "Please update Android WebView to start the session."
-msgstr "Actualice Android WebView para iniciar sesión."
+msgstr "Actualiza Android WebView para iniciar sesión."
 
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:37
 msgid "Please update Google Chrome to start the session."
-msgstr "Actualice Google Chrome para iniciar sesión."
+msgstr "Actualiza Google Chrome para iniciar sesión."
 
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:38
 msgid "Your device's browser is not compatible. Please update your browser and Vibrant to the latest version."
 msgstr "El navegador de tu dispositivo no es compatible. Actualiza tu navegador y Vibrant a la última versión."
 
-#: src/components/SentVerificationEmail.tsx:21
+#: src/components/SentVerificationEmail.tsx:23
 msgid "If the below email address is associated with an account, you will receive a verification email."
 msgstr "Si la dirección de email, aquí debajo, está asociada con una cuenta, vas a recibir un email de verificación."
 
-#: src/components/SentVerificationEmail.tsx:34
+#: src/components/SentVerificationEmail.tsx:36
 msgid "Please check your email on your device and click the verification link in the email message to proceed."
 msgstr "Por favor, abre en tu celular el correo que te enviamos y haz click en el link de verificación para proceder."
 
@@ -52,11 +52,12 @@ msgid "Ref: {reference}"
 msgstr "Ref.: {reference}"
 
 #: src/components/ConfirmVerificationCode.tsx:124
-#: src/components/SentVerificationEmail.tsx:46
+#: src/components/SentVerificationEmail.tsx:56
 msgid "Resend"
 msgstr "Reenviar"
 
 #: src/components/ConfirmVerificationCode.tsx:122
+#: src/components/SentVerificationEmail.tsx:54
 msgid "Resend in {cooldownSeconds}s"
 msgstr "Reenviar en {cooldownSeconds} s"
 
@@ -114,7 +115,7 @@ msgstr "No pudimos completar este paso. Inténtalo de nuevo en unos minutos. Si 
 
 #: src/helpers/getFirebaseError.ts:70
 msgid "We couldn’t connect. Check your internet connection and try again."
-msgstr "No pudimos conectarnos. Revisa tu conexión a internet e inténtalo de nuevo."
+msgstr "Error en la red. Revisa tu conexión a internet y vuelve a intentarlo."
 
 #: src/components/ConfirmVerificationCode.tsx:103
 msgid "We’ve sent you a new code."

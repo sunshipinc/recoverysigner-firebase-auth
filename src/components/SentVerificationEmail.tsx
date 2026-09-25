@@ -5,10 +5,12 @@ import { type State } from "types/State";
 import { Page } from "types/Page";
 import { setPage } from "ducks/page";
 import { useAppDispatch } from "hooks/useAppDispatch";
+import { useSendCodeCooldown } from "hooks/useSendCodeCooldown";
 
 export function SentVerificationEmail() {
   const dispatch = useAppDispatch();
-  const { email } = useSelector((state: State) => state);
+  const { email, emailSentAt } = useSelector((state: State) => state);
+  const cooldownSeconds = useSendCodeCooldown(emailSentAt);
 
   const handleResend = () => {
     dispatch(setPage(Page.sendVerificationEmail));
@@ -41,9 +43,18 @@ export function SentVerificationEmail() {
       <div style={{ height: 30 }} />
 
       <p className="text-center">
-        <button className="button-link" type="button" onClick={handleResend}>
+        <button
+          className="button-link"
+          type="button"
+          onClick={handleResend}
+          disabled={cooldownSeconds > 0}
+        >
           <span>
-            <Trans>Resend</Trans>
+            {cooldownSeconds > 0 ? (
+              <Trans>Resend in {cooldownSeconds}s</Trans>
+            ) : (
+              <Trans>Resend</Trans>
+            )}
           </span>
         </button>
       </p>

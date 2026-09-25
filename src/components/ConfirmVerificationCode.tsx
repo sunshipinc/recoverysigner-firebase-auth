@@ -19,13 +19,13 @@ export function ConfirmVerificationCode() {
   const dispatch = useAppDispatch();
   const [verificationCode, setVerificationCode] = useState("");
   const [hasRequestedResend, setHasRequestedResend] = useState(false);
-  const { verificationId, idToken, phoneNumber } = useSelector(
+  const { verificationId, idToken, phoneNumber, codeSentAt } = useSelector(
     (state: State) => state,
   );
   const confirmCodeStatus = useStatus(CONFIRM_VERIFICATION_CODE);
   const sendCodeStatus = useStatus(SEND_VERIFICATION_CODE);
   const isResending = hasRequestedResend && sendCodeStatus.isLoading;
-  const cooldownSeconds = useSendCodeCooldown();
+  const cooldownSeconds = useSendCodeCooldown(codeSentAt);
 
   useEffect(() => {
     if (verificationCode.match(/^\d{6}$/)) {
