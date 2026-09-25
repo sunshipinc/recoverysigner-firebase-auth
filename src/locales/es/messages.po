@@ -21,12 +21,12 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:36
 msgid "Please update Android WebView to start the session."
-msgstr "Actualice Android WebView para iniciar sesión."
+msgstr "Actualiza Android WebView para iniciar sesión."
 
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:37
 msgid "Please update Google Chrome to start the session."
-msgstr "Actualice Google Chrome para iniciar sesión."
+msgstr "Actualiza Google Chrome para iniciar sesión."
 
 #. js-lingui-explicit-id
 #: src/config/i18n.ts:38
@@ -115,7 +115,7 @@ msgstr "No pudimos completar este paso. Inténtalo de nuevo en unos minutos. Si 
 
 #: src/helpers/getFirebaseError.ts:70
 msgid "We couldn’t connect. Check your internet connection and try again."
-msgstr "No pudimos conectarnos. Revisa tu conexión a internet e inténtalo de nuevo."
+msgstr "Error en la red. Revisa tu conexión a internet y vuelve a intentarlo."
 
 #: src/components/ConfirmVerificationCode.tsx:103
 msgid "We’ve sent you a new code."
