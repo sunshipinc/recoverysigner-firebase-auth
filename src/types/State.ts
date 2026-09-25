@@ -23,4 +23,6 @@ export interface State {
   codeSentAt?: number;
   provider: PhoneAuthProvider;
   idToken: string;
+  // When the last verification email was sent, used to rate-limit Resend.
+  emailSentAt?: number;
 }

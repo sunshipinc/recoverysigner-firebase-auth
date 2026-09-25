@@ -18,7 +18,7 @@ export function reducer(state: State, action: Actions) {
       return { ...state, ...action.payload };
 
     case SEND_VERIFICATION_EMAIL:
-      return { ...state };
+      return { ...state, ...action.payload };
 
     case CONFIRM_VERIFICATION_CODE:
       return { ...state, ...action.payload };
@@ -54,10 +54,17 @@ export function sendVerificationCode(
 
 export interface SendVerificationEmailAction {
   type: typeof SEND_VERIFICATION_EMAIL;
+  payload: SendVerificationEmailPayload;
 }
 
-export function sendVerificationEmail(): SendVerificationEmailAction {
-  return { type: SEND_VERIFICATION_EMAIL };
+interface SendVerificationEmailPayload {
+  emailSentAt: number;
+}
+
+export function sendVerificationEmail(
+  payload: SendVerificationEmailPayload,
+): SendVerificationEmailAction {
+  return { type: SEND_VERIFICATION_EMAIL, payload };
 }
 
 // Confirm verification code

@@ -35,7 +35,7 @@ export function sendVerificationEmail({
 
   sendSignInLinkToEmail(auth(), email, dynamicLinkSettings)
     .then(() => {
-      dispatch(action());
+      dispatch(action({ emailSentAt: Date.now() }));
       setStatus(StatusType.success);
       isSending = false;
     })
