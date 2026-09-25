@@ -4,18 +4,28 @@ import { Trans } from "@lingui/react/macro";
 
 import { ErrorMessage } from "components/ErrorMessage";
 import { type State } from "types/State";
-import { Page } from "types/Page";
 import { confirmVerificationCode } from "helpers/confirmVerificationCode";
+import { sendVerificationCode } from "helpers/sendVerificationCode";
+import { useSendCodeCooldown } from "hooks/useSendCodeCooldown";
 import { useStatus } from "hooks/useStatus";
-import { CONFIRM_VERIFICATION_CODE } from "ducks/firebase";
-import { setPage } from "ducks/page";
+import {
+  CONFIRM_VERIFICATION_CODE,
+  SEND_VERIFICATION_CODE,
+} from "ducks/firebase";
+import { resetStatus } from "ducks/status";
 import { useAppDispatch } from "hooks/useAppDispatch";
 
 export function ConfirmVerificationCode() {
   const dispatch = useAppDispatch();
   const [verificationCode, setVerificationCode] = useState("");
-  const { verificationId, idToken } = useSelector((state: State) => state);
+  const [hasRequestedResend, setHasRequestedResend] = useState(false);
+  const { verificationId, idToken, phoneNumber } = useSelector(
+    (state: State) => state,
+  );
   const confirmCodeStatus = useStatus(CONFIRM_VERIFICATION_CODE);
+  const sendCodeStatus = useStatus(SEND_VERIFICATION_CODE);
+  const isResending = hasRequestedResend && sendCodeStatus.isLoading;
+  const cooldownSeconds = useSendCodeCooldown();
 
   useEffect(() => {
     if (verificationCode.match(/^\d{6}$/)) {
@@ -37,7 +47,12 @@ export function ConfirmVerificationCode() {
   }, [confirmCodeStatus.isSuccess, idToken]);
 
   const handleResend = () => {
-    dispatch(setPage(Page.sendVerificationCode));
+    // Clear the old code and its error so the new verificationId isn't checked
+    // against a code that belongs to the previous SMS.
+    setVerificationCode("");
+    dispatch(resetStatus(CONFIRM_VERIFICATION_CODE));
+    setHasRequestedResend(true);
+    sendVerificationCode({ phoneNumber: phoneNumber ?? "", dispatch });
   };
 
   if (confirmCodeStatus.isSuccess) {
@@ -66,8 +81,9 @@ export function ConfirmVerificationCode() {
             inputMode="numeric"
             type="text"
             pattern="^\d{6}$"
+            value={verificationCode}
             onChange={({ target: { value } }) => setVerificationCode(value)}
-            disabled={confirmCodeStatus.isLoading}
+            disabled={confirmCodeStatus.isLoading || isResending}
           />
         </label>
       </div>
@@ -75,6 +91,18 @@ export function ConfirmVerificationCode() {
       {confirmCodeStatus.error && (
         <ErrorMessage error={confirmCodeStatus.error} />
       )}
+
+      {hasRequestedResend && sendCodeStatus.error && (
+        <ErrorMessage error={sendCodeStatus.error} />
+      )}
+
+      {hasRequestedResend &&
+        sendCodeStatus.isSuccess &&
+        !confirmCodeStatus.error && (
+          <p className="success-message text-center" role="status">
+            <Trans>We’ve sent you a new code.</Trans>
+          </p>
+        )}
 
       {!confirmCodeStatus.isLoading && (
         <>
@@ -85,9 +113,16 @@ export function ConfirmVerificationCode() {
               className="button-link"
               type="button"
               onClick={handleResend}
+              disabled={isResending || cooldownSeconds > 0}
             >
               <span>
-                <Trans>Resend</Trans>
+                {isResending ? (
+                  <Trans>Sending a new code…</Trans>
+                ) : cooldownSeconds > 0 ? (
+                  <Trans>Resend in {cooldownSeconds}s</Trans>
+                ) : (
+                  <Trans>Resend</Trans>
+                )}
               </span>
             </button>
           </p>

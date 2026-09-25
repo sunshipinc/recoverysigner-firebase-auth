@@ -35,3 +35,10 @@ interface SetStatusPayload {
 export function setStatus(payload: SetStatusPayload): SetStatusAction {
   return { type: SET_STATUS, payload };
 }
+
+export function resetStatus(actionType: string): SetStatusAction {
+  return setStatus({
+    actionType,
+    status: { hasLoaded: false, isLoading: false, isSuccess: false },
+  });
+}

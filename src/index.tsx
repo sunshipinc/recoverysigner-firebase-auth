@@ -17,6 +17,7 @@ import { i18n } from "config/i18n";
 if ((window as any).APP_ENV) {
   Sentry.init({
     dsn: (window as any).APP_ENV.SENTRY_DSN,
+    environment: (window as any).APP_ENV.SENTRY_ENV || "production",
   });
 }
 

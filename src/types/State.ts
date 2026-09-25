@@ -19,6 +19,8 @@ export interface State {
   firebase: FirebaseOptions;
   recaptchaVerifier: RecaptchaVerifier;
   verificationId: string;
+  // When the last SMS code was sent, used to rate-limit the Resend button.
+  codeSentAt?: number;
   provider: PhoneAuthProvider;
   idToken: string;
 }
